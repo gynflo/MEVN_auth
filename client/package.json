@@ -9,10 +9,13 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@vee-validate/zod": "^4.5.11",
     "pinia": "^2.0.14",
     "sass": "^1.52.2",
+    "vee-validate": "^4.5.11",
     "vue": "^3.2.36",
-    "vue-router": "^4.0.15"
+    "vue-router": "^4.0.15",
+    "zod": "^3.17.3"
   },
   "devDependencies": {
     "@types/node": "^16.11.36",
