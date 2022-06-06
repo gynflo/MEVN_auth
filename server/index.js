@@ -1,7 +1,16 @@
 require('dotenv').config();
 const express = require('express');
+const {MongoClient} = require('mongodb')
 const path = require('path');
 const port = process.env.PORT || 3000;
+
+const client  = new MongoClient(process.env.MONGODB_URL);
+
+client.connect()
+    .then(() => {console.log('BDD Connected');
+    })
+    .catch((e) => {console.log(e);
+    })
 
 const app = express();
 
