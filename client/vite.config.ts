@@ -15,4 +15,9 @@ export default defineConfig({
     outDir: "../client-build",
     emptyOutDir: true,
   },
+  server: {
+    proxy: {
+      "/api": "http://localhost:8000",
+    },
+  },
 });

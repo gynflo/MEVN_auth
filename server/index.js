@@ -1,21 +1,19 @@
 require('dotenv').config();
 const express = require('express');
-const {MongoClient} = require('mongodb')
+const cookieParser = require('cookie-parser');
 const path = require('path');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
+const router = require('./routes');
 
-const client  = new MongoClient(process.env.MONGODB_URL);
-
-client.connect()
-    .then(() => {console.log('BDD Connected');
-    })
-    .catch((e) => {console.log(e);
-    })
+require('./database')
 
 const app = express();
-
 app.use(express.static(path.join(__dirname, '../client-build')));
+app.use(express.json());
+app.use(cookieParser())
 
+
+app.use(router);
 
 app.use('*', (req,res) => {
     res.sendFile(path.join(__dirname, '../client-build/index.html'));

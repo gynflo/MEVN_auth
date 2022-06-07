@@ -1,5 +1,5 @@
 import type { UserForm } from "@/shared/interfaces";
-const BASE_URL = `http://localhost:8000/api/user`;
+const BASE_URL = `/api/user`;
 
 export async function createUser(userForm: UserForm) {
   try {
